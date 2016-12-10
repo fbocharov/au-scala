@@ -1,0 +1,15 @@
+@()(implicit request: RequestHeader)
+@import play.api.Play
+
+@header = {
+    <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/chat.css")" />
+}
+@main("My super trouper chat", header = header){
+    <script>
+        var settings = {
+            "assetsDir": "@routes.Assets.at("").url",
+            "wsBaseUrl": "@routes.ChatController.ws("").webSocketURL()"
+        }
+        example.ChatJS().show(settings)
+    </script>
+}
